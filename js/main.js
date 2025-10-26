@@ -41,6 +41,11 @@ const mostrarMenj = () => {
 
   if (datos && datos.length > 0) {
     let ultima = datos[datos.length - 1];
+    
+    //tomamos el div del html y mostramos el mnj con las propinas.
+    const divMnj = document.getElementById("printPropinas")
+    divMnj.innerHTML = `<p> aca va a ir ultimo mensaje a ver que tal`
+
     console.log("Última propina guardada:");
     console.log("Monto:", ultima.monto);
     console.log("Mensaje:", ultima.mensaje);
