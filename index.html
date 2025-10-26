@@ -22,6 +22,41 @@ UI mínima con Next.js.
 Por qué es perfecto para empezar:
 Rápido, tangible y divertido. Ves el dinero moverse.
 Te da la sensación de “¡ya hice una dApp funcional!”
+
+┌───────────────────────────────────────────────┐
+│   HEADER                                      │
+│  ──────────────────────────────────────────── │
+│   LOGO "TipBox Studio"    [ + Nueva Caja ]    │
+└───────────────────────────────────────────────┘
+
+┌───────────────────────┬──────────────────────────────┐
+│                       │                              │
+│  📦 PREVISUALIZACIÓN  │ ⚙️ PANEL DE CONTROL          │
+│                       │                              │
+│  ┌─────────────────┐  │  Nombre de Caja: [ __ ]  │
+│  │ 💰 Caja de Bruno│  │  Color primario: [🟥]         │
+│  │                 │  │  Mensaje de agradecimiento:   │
+│  │  "Gracias por   │  │  [ ________ ]   │
+│  │   tu apoyo!"    │  │                              │
+│  │   💳 [ Dar Propina ]│  │  Moneda: [ EUR ▼ ]          │
+│  └─────────────────┘  │  Integración: [ Wallet | PayPal]│
+│                       │                              │
+│                       │  🔄 API Key: [ **** ] │
+│                       │  Estado: [ ✅ Activa ]         │
+│                       │                              │
+│                       │  [ Guardar Cambios ]          │
+└───────────────────────┴──────────────────────────────┘
+
+┌───────────────────────────────────────────────┐
+│   📊 HISTORIAL DE PROPINAS                    │
+│   Fecha | Monto | Usuario | Mensaje opcional  │
+│   ------------------------------------------  │
+│   25/10 | 3.00€ | @arturo | “gracias capo”    │
+│   25/10 | 1.50€ | @luisa  | “❤️”               │
+└───────────────────────────────────────────────┘       
+
+
+
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -39,18 +74,40 @@ Te da la sensación de “¡ya hice una dApp funcional!”
   </head>
   <body>
     <header class="container-fluid">
-      <article class=" mt-5 row">
+      <article class="mt-5 row">
         <div class="offset-md-5">
           <h4>Tip Box</h4>
         </div>
       </article>
     </header>
     <section class="container">
-        <article class="row">
-            <div class="offset-md-2">
-                <p class="col-md-8">Ingresa el monto que gentilmente quieres dejar a nuestros colaboradores, estaremos muy asgradecidos con vos!</p>
-            </div>
-        </article>
+      <article class="row mt-5">
+        <div class="offset-md-2">
+          <p class="col-md-8">
+            Ingresa el monto que gentilmente quieres dejar a nuestros
+            colaboradores, estaremos muy asgradecidos con vos!
+          </p>
+        </div>
+      </article>
+    </section>
+    <section class="container">
+      <article class="row mt-5">
+        <div class="offset-md-2">
+          <form id="tip-form" class="col-md-6" onsubmit="sendTip(event)">
+            <label for="monto"
+              >Ingresa el monto que te gustaría dejar como propina: $</label
+            >
+            <input type="number" id="monto" required />
+
+            <label for="mensaje" class="mt-5"
+              >Nos encantaría que nos dejes un mensaje:</label
+            >
+            <input type="text" id="mensaje" value="Son los mejores" required />
+
+            <button type="submit">Enviar propina</button>
+          </form>
+        </div>
+      </article>
     </section>
 
     <script
